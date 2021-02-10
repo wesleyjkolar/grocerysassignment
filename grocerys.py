@@ -10,15 +10,21 @@ class Store:
 class Item: 
     def __init__(self, name): 
         self.name = name 
-        
+def view_lists():
+    for store in stores:
+        print(f"{store.name} - ")
+        for item in store.items: 
+            print(f"{item.name}")
+
 
 
 while True: 
     print("*************************")
-    print("Enter 1 to add a store: ")
-    print("Enter 2 to add item to a store: ")
-    print("Enter 3 to view lists: ")
-    print("Enter q to quit: ")
+    print("Enter 1 to add a store")
+    print("Enter 2 to add item to a store")
+    print("Enter 3 to view lists")
+    print("Enter 4 to delete a store")
+    print("Enter q to quit")
     print("*************************")
     choice = input("Enter choice: ")
     
@@ -38,10 +44,14 @@ while True:
         store.items.append(item)
 
     elif choice == "3":
-        for store in stores: 
-            print(f"{store.name} - ")
-            for item in store.items: 
-                print(f"{item.name}")
+        view_lists()
+
+    elif choice == "4":
+        view_lists()
 
     elif choice == "q":
         break 
+    else:
+        print("                                    ")
+        print("Please input a choice from the menu.")
+        print("                                    ")
